@@ -172,33 +172,34 @@ class UiObject:
 
 
 if "__main__" == __name__:
+    pass
 
-    buttons = ["Practice", "Compete", "Leaderboard"]
-
-
-    def navigate(button):
-
-        Browser.create_new_driver(Browser.CHROME)
-        Browser.get_driver().get("https://www.hackerrank.com/dashboard")
-        button_object = UiObject(By.XPATH,
-                                 "//a[contains(@class, 'nav-link')]/span[text() = '{}']/parent::a".format(button))
-        title = UiObject(By.XPATH, "//h1")
-        button_object.click()
-        time.sleep(2)
-        print("Thread: {} URL: {} Title: {} Button Class: {}".format(threading.currentThread(),
-                                                                     Browser.get_driver().current_url,
-                                                                     title.get_text(),
-                                                                     button_object.get_attribute("class")))
-        Browser.shutdown()
-
-
-    threads = []
-
-    for button in buttons:
-        thread = threading.Thread(target=navigate, args=(button,))
-        thread.name = "[Thread: {}]".format(buttons.index(button))
-        thread.start()
-        threads.append(thread)
-
-    for thread in threads:
-        thread.join()
+    # buttons = ["Practice", "Compete", "Leaderboard"]
+    #
+    #
+    # def navigate(button):
+    #
+    #     Browser.create_new_driver(Browser.CHROME)
+    #     Browser.get_driver().get("https://www.hackerrank.com/dashboard")
+    #     button_object = UiObject(By.XPATH,
+    #                              "//a[contains(@class, 'nav-link')]/span[text() = '{}']/parent::a".format(button))
+    #     title = UiObject(By.XPATH, "//h1")
+    #     button_object.click()
+    #     time.sleep(2)
+    #     print("Thread: {} URL: {} Title: {} Button Class: {}".format(threading.currentThread(),
+    #                                                                  Browser.get_driver().current_url,
+    #                                                                  title.get_text(),
+    #                                                                  button_object.get_attribute("class")))
+    #     Browser.shutdown()
+    #
+    #
+    # threads = []
+    #
+    # for button in buttons:
+    #     thread = threading.Thread(target=navigate, args=(button,))
+    #     thread.name = "[Thread: {}]".format(buttons.index(button))
+    #     thread.start()
+    #     threads.append(thread)
+    #
+    # for thread in threads:
+    #     thread.join()

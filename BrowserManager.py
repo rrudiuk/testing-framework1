@@ -99,25 +99,26 @@ class Browser:
 
 
 if "__main__" == __name__:
-
-    urls = ["https://www.hackerrank.com/dashboard",
-            "https://www.hackerrank.com/contests",
-            "https://www.hackerrank.com/jobs/search",
-            "https://www.hackerrank.com/leaderboard"]
-
-    threads = []
-
-    def get_url(_url):
-        Browser.create_new_driver(Browser.CHROME)
-        Browser.get_driver().get(_url)
-        print("Thread: {} URL: {}".format(threading.currentThread(), Browser.get_driver().current_url))
-        Browser.shutdown()
-
-    for url in urls:
-        thread = threading.Thread(target=get_url, args=(url,))
-        thread.name = "[Thread: {}]".format(urls.index(url))
-        thread.start()
-        threads.append(thread)
-
-    for thread in threads:
-        thread.join()
+    pass
+#
+#     urls = ["https://www.hackerrank.com/dashboard",
+#             "https://www.hackerrank.com/contests",
+#             "https://www.hackerrank.com/jobs/search",
+#             "https://www.hackerrank.com/leaderboard"]
+#
+#     threads = []
+#
+#     def get_url(_url):
+#         Browser.create_new_driver(Browser.CHROME)
+#         Browser.get_driver().get(_url)
+#         print("Thread: {} URL: {}".format(threading.currentThread(), Browser.get_driver().current_url))
+#         Browser.shutdown()
+#
+#     for url in urls:
+#         thread = threading.Thread(target=get_url, args=(url,))
+#         thread.name = "[Thread: {}]".format(urls.index(url))
+#         thread.start()
+#         threads.append(thread)
+#
+#     for thread in threads:
+#         thread.join()
